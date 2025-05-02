@@ -1,0 +1,28 @@
+# Main Schema
+type Query {
+    hello: String
+    random: Float!
+    rollDice(numDice: Int!, numSides: Int): [Int]
+    getIp: String
+    getMessage: String
+}
+
+
+
+enum Episode {
+    NEWHOPE
+    EMPIRE
+    JEDI
+}
+
+# "!" means that it's mandatory
+
+input ReviewInput {
+    stars: Int!
+    commentary: String
+}
+
+type Mutation {
+    createReview(episode: Episode, review: ReviewInput!): String
+    setMessage(message: String): String
+}

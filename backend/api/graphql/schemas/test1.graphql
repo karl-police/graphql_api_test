@@ -1,0 +1,8 @@
+interface ITest_1 {
+    value1: Boolean
+}
+
+type Test1 implements ITest_1 {
+    value1: Boolean
+    value1_b: Boolean
+}

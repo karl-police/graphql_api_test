@@ -1,0 +1,14 @@
+query {
+  hello
+  random
+  rollDice(numDice: 3, numSides: 6)
+}
+
+---
+
+mutation {
+  createReview(
+    review:{stars:3}
+  )
+  setMessage(message: "Test")
+}

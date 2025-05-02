@@ -7,6 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "devRun": "nodemon runServer.js"
   },
+  "graphql": {
+    "schema": "http://localhost:3001/graphql",
+    "documents": "**/*.{graphql,js,ts,jsx,tsx}"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
