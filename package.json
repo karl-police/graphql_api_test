@@ -12,8 +12,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@hono/graphql-server": "^0.5.1",
     "@hono/node-server": "^1.14.1",
+    "graphql": "^16.11.0",
+    "graphql-http": "^1.22.4",
     "hono": "^4.7.8",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "ruru": "^2.0.0-beta.22"
   }
 }

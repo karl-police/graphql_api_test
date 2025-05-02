@@ -1,6 +1,5 @@
 import { Hono } from "hono";
 import { serveStatic } from "@hono/node-server/serve-static";
-import { showRoutes } from "hono/dev";
 
 
 const HonoWebApp = new Hono()
