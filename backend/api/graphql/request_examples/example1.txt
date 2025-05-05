@@ -12,3 +12,17 @@ mutation {
   )
   setMessage(message: "Test")
 }
+
+
+---
+
+Try to set this Header in GraphQL Playground
+
+{
+  "Auth_Test_Header": "secret_code"
+}
+
+Then use
+{
+  getMessageUpperSpecial
+}

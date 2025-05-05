@@ -3,7 +3,7 @@ import { example_root } from "./example.js"
 const root = {}
 
 // Example
-root.hello = function() {
+root.hello = function(args, context) {
     return "Hello World!"
 }
 

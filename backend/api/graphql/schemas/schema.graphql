@@ -1,12 +1,42 @@
 # Main Schema
+
+# Some other useful docs
+# https://www.apollographql.com/docs/apollo-server/schema/directives
+
+# "!" means that it's mandatory
+
+"""
+    While it's not mentioned, it's recommended to keep directives in the order as they're defined here
+    
+    It's good practise to define directives in schemes in the same order
+    as the directives were defined below
+    
+    Regardless if the implementation supports any "execution" order for the directives
+    
+    e.g. @a @b @c
+    @c @b @a
+"""
+
+# Auth Test with test Header
+directive @auth_test(code: String) on FIELD_DEFINITION
+
+directive @log_test on FIELD_DEFINITION | OBJECT
+
+# Turn the result into an upper case
+directive @toUpperCase on FIELD_DEFINITION
+
+
+
+# Query
 type Query {
     hello: String
     random: Float!
     rollDice(numDice: Int!, numSides: Int): [Int]
     getIp: String
-    getMessage: String
+    getMessage: String @log_test
+    getMessageUpper: String @log_test @toUpperCase
+    getMessageUpperSpecial: String @auth_test(code: "secret_code") @toUpperCase @log_test
 }
-
 
 
 enum Episode {
@@ -15,14 +45,13 @@ enum Episode {
     JEDI
 }
 
-# "!" means that it's mandatory
-
 input ReviewInput {
     stars: Int!
     commentary: String
 }
 
-type Mutation {
+# Mutation
+type Mutation @log_test {
     createReview(episode: Episode, review: ReviewInput!): String
     setMessage(message: String): String
 }
