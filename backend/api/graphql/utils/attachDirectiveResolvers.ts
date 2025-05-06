@@ -20,7 +20,7 @@ type DirectiveResolver = ( // function
     info: GraphQLResolveInfo
 ) => any
 
-type DirectiveResolvers = {
+export type DirectiveResolvers = {
     [name: string]: DirectiveResolver
 }
 
