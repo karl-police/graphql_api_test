@@ -17,6 +17,10 @@
     @c @b @a
 """
 
+# A directive on an entire object could mean that it's applying it to all the fields on an object
+# See attachDirectiveResolvers.ts for more comments
+
+
 # Auth Test with test Header
 directive @auth_test(code: String) on FIELD_DEFINITION
 

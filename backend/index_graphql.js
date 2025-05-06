@@ -6,31 +6,20 @@ import { buildSchema } from "graphql";
 
 import { graphqlServer } from '@hono/graphql-server'
 
-import fs from "fs"
-import path from "path"
+import ComposeSchemas from "./api/graphql/utils/composeSchemas.js";
+
+/*class GQL_SchemaSet {
+    
+}
+
+var schema_sandbox_obj = new GQL_SchemaSet()*/
 
 // Get all schemas from the folder
 const _DIRECTORY_SCHEMAS = "backend/api/graphql/schemas"
-let FILES_gql_schemas = await fs.promises.readdir(
-    _DIRECTORY_SCHEMAS, { recursive: true, withFileTypes: true }
-)
+let str_schemaComposed = await ComposeSchemas.composeStringBuildSchemas_FromDirPathAsync(_DIRECTORY_SCHEMAS)
 
-let str_schemaBuilder = ""
-FILES_gql_schemas.forEach(function(v,i,a) {
-    let extName = path.extname(v.name).toString()
-
-    // Only get "graphql" related files
-    if (extName != ".graphql" && extName != ".gql") {
-        return // Skip otherwise
-    }
-
-    let filePath = path.join(v.path, v.name)
-    str_schemaBuilder += fs.readFileSync( filePath ).toString() + "\n"
-})
-
-//console.log(str_schemaBuilder)
-let schema = buildSchema(str_schemaBuilder);
-str_schemaBuilder = undefined
+let schema = buildSchema(str_schemaComposed);
+str_schemaComposed = undefined
 
 
 
@@ -52,7 +41,7 @@ const rootResolver = (c) => {
 
 
 /*schema = makeExecutableSchema({
-    typeDefs: str_schemaBuilder,
+    typeDefs: str_schemaComposed,
     resolvers: rootResolver,
     inheritResolversFromInterfaces: true,
 })*/
