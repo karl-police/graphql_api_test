@@ -12,10 +12,10 @@ import ComposeSchemas from "./api/graphql/utils/composeSchemas.js";
     
 }
 
-var schema_sandbox_obj = new GQL_SchemaSet()*/
+var schema_test_example_obj = new GQL_SchemaSet()*/
 
 // Get all schemas from the folder
-const _DIRECTORY_SCHEMAS = "backend/api/graphql/schemas"
+const _DIRECTORY_SCHEMAS = "backend/api/graphql/schemas/test_example"
 let str_schemaComposed = await ComposeSchemas.composeStringBuildSchemas_FromDirPathAsync(_DIRECTORY_SCHEMAS)
 
 let schema = buildSchema(str_schemaComposed);
